@@ -20,10 +20,9 @@ before_install:
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - sfdx plugins --core
-- sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
-  --username $USERNAME --setdefaultdevhubusername -a HubOrg
+- sfdx force:auth:jwt:grant --clientid 3MVG9LBJLApeX_PAsb7TLUhlBjNU2eC9DOgl9y4IdL7W7b5jv8c3Q_qR9Ig.j63YrP1V5hKkNNScjwWEVQhVO --username alexeinsteinde@superbadje.com \ --jwtkeyfile assets/server.key --setdefaultdevhubusername -a HubOrg
 script:
-- sfdx force:org:create -v teailhead -s -f config/project-scratch-def.json -a ciorg --wait
+- sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait
   2
 - sfdx force:org:display -u ciorg
 - sfdx force:source:push -u ciorg
